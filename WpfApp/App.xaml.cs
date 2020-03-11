@@ -5,9 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using WpfApp2.View;
+using WpfApp.View;
 
-namespace WpfApp2
+namespace WpfApp
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml
