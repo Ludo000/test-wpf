@@ -1,8 +1,139 @@
 ﻿<Application x:Class="WpfApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfApp">
+             xmlns:local="clr-namespace:WpfApp"
+             xmlns:css="clr-namespace:XamlCSS;assembly=XamlCSS"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <!-- for styling button's mouse over color -->
+            <ControlTemplate x:Key="buttonTemplate" TargetType="{x:Type Button}">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+            <css:StyleSheet x:Key="inlineStyle" xml:space="preserve" >
+        <css:StyleSheet.Content>
+          <![CDATA[
+/* declare some variables */
+$background-color: #fefefe;
+$foreground-color: #fff;
+
+$important-bg-color: #fd8224;
+$important-color: #fff;
+
+$control-color: #666;
+$control-hover-color: #999;
+
+$font-color: #000;
+$control-height: 32;
+  
+/* for all elements that are "important" */
+.important
+{
+    Background: $important-bg-color;
+}
+
+/* for all elements that 
+    - are jumbo elements OR 
+    - are Runs directly under a jumbo-element (workaround a bug in WPF designer if TextBlock is initialized not as attribute but as xml-node-content)
+*/
+.jumbo,
+.jumbo>Run {
+    FontSize: $control-height;
+}
+
+/* for all elements that are navigation-buttons (means a container of navigation buttons) */
+.navigation-buttons {
+    Background: #222;
+    Orientation: Horizontal;
+    FlowDirection: RightToLeft;
+    Grid.Row: 1;
+    CornerRadius : 20;
+    
+    /* for all Buttons somewhere down in a navigation-buttons container */
+    Button {
+        Margin: 5, 5, 5, 5;
+    
+        /* for all Buttons following a Button in side a navigation-buttons container */
+        &~Button {
+            Margin: 0, 5, 5, 5;
+        }
+    }
+}
+    
+/* for all Grids */
+Grid {
+    Background: $background-color;
+}
+    
+/* for all StackPanels */                
+StackPanel {
+    Spacing: 10;
+    Background: $background-color;
+    SnapsToDevicePixels: true;
+    
+    /* for all TextBlocks somewhere down in an StackPanel */
+    TextBlock {
+        Foreground: $font-color;
+    }
+}
+    
+/* for all TextBlocks */
+TextBlock
+{
+    Padding: 5;
+    UseLayoutRounding: true;
+              
+    /* for all TextBlocks that are important */
+    &.important {
+        Background: $important-bg-color;
+        Foreground: $important-color;
+        TextAlignment: Center;
+    }
+}
+    
+/* for all Buttons */
+Button
+{
+    Height: $control-height;
+    MinWidth: 150;
+    Foreground: $foreground-color;
+    Background: $control-color;
+    Template: #StaticResource buttonTemplate; /* using a control template in a resource dictioanry */
+    Cursor: Hand;
+    
+    /* when IsMouseOver property is true, then...*/
+    @Property IsMouseOver true {
+        Background: $control-hover-color;
+    }
+    
+    /* when IsPressed property is true, then...*/
+    @Property IsPressed true {
+        Background: #333;
+        Foreground: #fff;
+    }
+    
+    
+    &.important {
+        Foreground: #fff;
+        FontWeight: Bold;
+    
+        /* when IsMouseOver property is true, then...*/
+        @Property IsMouseOver true {
+            Background: green;
+        }
+        
+        /* when IsPressed property is true, then...*/
+        @Property IsPressed true {
+            Background: $important-bg-color;
+        }
+    }
+}
+    
+]]>
+        </css:StyleSheet.Content>
+      </css:StyleSheet>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

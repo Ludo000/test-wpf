@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfApp.View;
+using XamlCSS.WPF;
 
 namespace WpfApp
 {
@@ -14,6 +15,11 @@ namespace WpfApp
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Css.Initialize();
+            InitializeComponent();
+        }
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);

@@ -4,9 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
+        xmlns:css="clr-namespace:XamlCSS;assembly=XamlCSS"
+        xmlns:cssWPF="clr-namespace:XamlCSS.WPF;assembly=XamlCSS.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="350" Width="525"
+        cssWPF:Css.StyleSheet="{StaticResource inlineStyle}"
+        >
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock cssWPF:Css.Class="important jumbo" Text="Important Jumbo Text" />
+            <TextBlock cssWPF:Css.Class="important" Text="Important Text" />
+            <RichTextBox Height="191">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="RichTextBox"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </StackPanel>
+        <StackPanel cssWPF:Css.Class="navigation-buttons">
+            <Border BorderBrush="#FF000000" BorderThickness="1" CornerRadius="8">
+                <Button cssWPF:Css.Class="important">Important Button</Button>
+            </Border>
+            <Button>Normal Button</Button>
+        </StackPanel>
     </Grid>
 </Window>
