@@ -24,9 +24,11 @@ namespace WpfApp
         {
             base.OnStartup(e);
             MainPage window = new MainPage();
+            EditText editText = new EditText();
             UserViewModel VM = new UserViewModel();
             window.DataContext = VM;
             window.Show();
+            editText.Show();
         }
     }
 }
