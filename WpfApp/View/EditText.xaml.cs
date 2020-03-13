@@ -23,5 +23,10 @@ namespace WpfApp.View
         {
             InitializeComponent();
         }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

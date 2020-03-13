@@ -130,5 +130,17 @@
     <Resource Include="View\Images\LargeIcon.png" />
     <Resource Include="View\Images\SmallIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\file-alt-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\folder-open-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\save-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\Small\folder-open-solid.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,17 +28,27 @@
                             <UniformGrid Rows="1"/>
                         </ItemsPanelTemplate>
                     </RibbonGroup.ItemsPanel>
-                    <RibbonButton   Label="Save"
-                                    Command="Save"
+
+                    <RibbonButton x:Name="New" Label="New"
+                                    KeyTip="N"
+                                    ToolTip="New (Ctrl+N)"
+                                    ToolTipDescription="New" 
+                                    SmallImageSource="Images/file-alt-solid.png" 
+                                    LargeImageSource="Images/file-alt-solid.png" Click="New_Click"/>
+                    <RibbonButton   x:Name="Open" Label="Open"
+                                    KeyTip="O"
+                                    ToolTip="Open (Ctrl+O)"
+                                    ToolTipDescription="Open" 
+                                    SmallImageSource="Images/Small/folder-open-solid.png" 
+                                    LargeImageSource="Images/Small/folder-open-solid.png"
+                                  />
+                    <RibbonButton   x:Name="SaveAll" Label="Save All"
                                     KeyTip="S"
                                     ToolTip="Save (Ctrl+S)"
                                     ToolTipDescription="Save" 
-                                    SmallImageSource="Images/save.png" 
-                                    LargeImageSource="Images/save.png" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    SmallImageSource="Images/save-solid.png" 
+                                    LargeImageSource="Images/save-solid.png"
                                   />
-                    <RibbonButton x:Name="Button2" Label="Button2"/>
-                    <RibbonButton x:Name="Button3" Label="Button3"/>
-                    <RibbonButton x:Name="Button4" Label="Button4"/>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
